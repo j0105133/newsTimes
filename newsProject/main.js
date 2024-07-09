@@ -1,5 +1,9 @@
 const api_key='140c1074224f4a21ad30e882f4092dfc'
 let news=[];
+const pageSize = 10;
+let page = 2;
+let category = ""; 
+let keyword = ""; 
 const getLatestNews = async () =>{
     const url = new URL 
     (`https://stephnews.netlify.app/
@@ -15,3 +19,5 @@ const getLatestNews = async () =>{
 };
 
 getLatestNews();
+
+
