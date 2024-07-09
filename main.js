@@ -5,13 +5,11 @@ let page = 2;
 let category = ""; 
 let keyword = ""; 
 const getLatestNews = async () =>{
-    const url = new URL 
-    (`https://stephnews.netlify.app/
-        top-headlines?country=us
-        &pageSize&${pageSize}
-        &page=${page}${category}${keyword}`
+   
+    const url = new URL(
+        `https://stephnews.netlify.app/top-headlines?country=us&pageSize=${pageSize}&page=${page}${category}${keyword}`
+    ); 
 
-    );
      const response = await fetch(url);
      const data = await response.json();
      news = data.articles;
@@ -19,5 +17,4 @@ const getLatestNews = async () =>{
 };
 
 getLatestNews();
-
 
