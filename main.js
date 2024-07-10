@@ -6,7 +6,7 @@ let category = "";
 let keyword = ""; 
 const getLatestNews = async () =>{
    
-    /*const url = new URL(
+   /* const url = new URL(
         `https://newsapi.org/v2/top-headlines?country=us&pageSize=${pageSize}&page=${page}${category}${keyword}&apiKey=${api_key}`
     ); 
     const response = await fetch(url);*/
@@ -42,9 +42,9 @@ getLatestNews();
       inputArea.style.display = "inline";
     }
   };
-  const truncateText = (text, length) => {
-    return text.length > length ? text.substring(0, length) + '...' : text;
-};
+ 
+
+
   const render =()=>{
     const newsHTML = 
     newsList.map(
@@ -52,13 +52,19 @@ getLatestNews();
             `<div class="row news">
                 <div class="col-lg-4">
                     <img class="news-img-size" src="
-                    ${news.urlToImage || 'https://via.placeholder.com/150?text=IMAGE+NOT+AVAILABLE'}" alt="News Image" />
+                    ${news.urlToImage || 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqEWgS0uxxEYJ0PsOb2OgwyWvC0Gjp8NUdPw&usqp=CAU'}" alt="News Image" />
                 </div>
                 <div class="col-lg-8">
                     <h2>${news.title}</h2>
-                     <p>${truncateText(news.description || "내용 없음", 200)}</p>
+                     <p>${
+                    news.content == null || news.content == ""
+                        ? "내용없음"
+                        : news.content.length > 200
+                        ? news.content.substring(0, 200) + "..."
+                        : news.content
+                     }</p>
                     <div>
-                        ${news.source.name ||"No source" } * ${news.publishedAt}
+                        ${news.source.name ||"No source"} *  ${moment(news.publishedAt).fromNow()}
                     </div>
                 </div>
             </div>
