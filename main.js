@@ -57,11 +57,11 @@ getLatestNews();
                 <div class="col-lg-8">
                     <h2>${news.title}</h2>
                      <p>${
-                    news.content == null || news.content == ""
+                    news.description == null || news.description == ""
                         ? "내용없음"
-                        : news.content.length > 200
-                        ? news.content.substring(0, 200) + "..."
-                        : news.content
+                        : news.description.length > 200
+                        ? news.description.substring(0, 200) + "..."
+                        : news.description
                      }</p>
                     <div>
                         ${news.source.name ||"No source"} *  ${moment(news.publishedAt).fromNow()}
