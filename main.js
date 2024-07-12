@@ -67,7 +67,7 @@ const getNewsByCategory = async (event) => {
     keyword = ""; 
 
     const url = 
-    new URL(`https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${api_key}`);
+    new URL(`https://stephnews.netlify.app/top-headlines?country=us&category=${category}&apiKey=${api_key}`);
     await fetchNews(url);
 };
 
