@@ -1,6 +1,14 @@
 const api_key = '140c1074224f4a21ad30e882f4092dfc';
 let newsList = [];
 const menus = document.querySelectorAll(".menus button");
+const sideMenuList = document.querySelectorAll(".side-menu-list button");
+
+sideMenuList.forEach(sideMenu => 
+    sideMenu.addEventListener("click", (event) =>{
+        closeNav();
+         getNewsByCategory(event)
+    })
+);
 
 
 menus.forEach(menu => 
@@ -36,6 +44,7 @@ getLatestNews();
 
 const openNav = () => {
     document.getElementById("mySidenav").style.width = "250px";
+
 };
 
 const closeNav = () => {
